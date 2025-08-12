@@ -1,12 +1,37 @@
-# React + Vite
+```mermaid
+flowchart TD
+  %% Entry Point
+ A[User Clicks Link] --> B[Upload Page]
+  B --> C[User Uploads Image/Video + Poster Name + Caption]
+  C --> D[Upload Stored in DB as Pending]
+  D --> E[Redirect to Gallery Page]
+  E --> F[Show Only Approved Media]
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+  %% Admin Moderation Flow
+  D --> G[Admin Dashboard]
+  G --> H[Review Uploaded Media]
+  H --> I{Approve or Reject?}
+  I -->|Approve| J[Media Status: Approved]
+  I -->|Reject| K[Media Removed]
+  J --> F
 
-Currently, two official plugins are available:
+  %% Gallery Interaction
+  F --> L[Animated Display of Media Grid]
+  L --> M[User Views Media Details]
+  M --> N[Users Can Add Comments]
+  N --> O[Other Users Can See Comments]
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  %% Tools and Design
+  subgraph Tech_Stack [Built With]
+    T1[MUI]
+    T2[Tailwind CSS]
+    T3[Framer Motion for Animations]
+    T4[Supabase or Cloudinary for Media Storage]
+    T5[React + Vite + React Router]
+  end
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+  A --> T1
+  A --> T2
+  L --> T3
+  C --> T4
+  A --> T5
