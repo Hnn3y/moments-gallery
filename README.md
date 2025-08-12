@@ -1,3 +1,43 @@
+# 📸 Moments Gallery
+
+**A Vite + React 19 + TailwindCSS + Framer Motion project** where users can upload media for admin approval, then view all approved uploads in an animated gallery.
+
+---
+
+## 🚀 Features
+
+- **React 19 + Vite (latest stable)**
+- **TailwindCSS** for modern, responsive styling  
+- **React Router** for smooth navigation  
+- **Framer Motion** for rich animations  
+- **Strict Mode** enabled for React  
+- **Mock API** with JSON Server (or in-memory simulation)  
+- Upload **images** or **videos**  
+- Automatic **redirect to gallery** after successful upload  
+- **Different animations per user** in gallery view  
+- Mobile-first responsive design
+
+---
+
+## 📂 Project Structure
+
+moments-gallery/
+├── public/ # Static assets
+├── src/
+│ ├── components/ # Reusable UI components
+│ ├── pages/ # Page components (Upload, Gallery)
+│ ├── api/ # Mock API handlers
+│ ├── App.jsx # Main application component
+│ ├── main.jsx # React entry point
+│ └── index.css # TailwindCSS styles
+├── postcss.config.cjs # Tailwind/PostCSS config
+├── tailwind.config.cjs # Tailwind configuration
+├── package.json
+└── README.md
+
+
+
+
 ```mermaid
 flowchart TD
   %% Entry Point

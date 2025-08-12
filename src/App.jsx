@@ -3,6 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useLocation } from 'react-router-dom'
 import UploadPage from './pages/UploadPage'
 import GalleryPage from './pages/GalleryPage'
+import AdminLogin from './pages/AdminLogin'
+import AdminDashboard from './pages/AdminDashboard'
+import ProtectedRoute from './components/ProtectedRoute'
 
 // Page transition wrapper component
 function PageTransition({ children }) {
@@ -28,6 +31,8 @@ function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/upload" replace />} />
+      
+      {/* Public Routes */}
       <Route 
         path="/upload" 
         element={
@@ -42,6 +47,26 @@ function AppRoutes() {
           <PageTransition>
             <GalleryPage />
           </PageTransition>
+        } 
+      />
+      
+      {/* Admin Routes */}
+      <Route 
+        path="/admin/login" 
+        element={
+          <PageTransition>
+            <AdminLogin />
+          </PageTransition>
+        } 
+      />
+      <Route 
+        path="/admin" 
+        element={
+          <ProtectedRoute>
+            <PageTransition>
+              <AdminDashboard />
+            </PageTransition>
+          </ProtectedRoute>
         } 
       />
     </Routes>
